@@ -58,10 +58,9 @@ search.onclick = () => {
     errorMessage.classList.remove("hidden");
     errorMessage.textContent = "Type a name"
   } else {
-    requestUser(input.value);
     errorMessage.classList.add("hidden");
     errorMessage.textContent = "No results";
-    //how to display error message when there is no response from API?
+    requestUser(input.value);
   }
 }
 
@@ -72,19 +71,55 @@ let requestUser = (username) => {
   xhr.open('GET', url, true);
   xhr.onload = function() {
     const data = JSON.parse(this.response);
-    avatar.style.backgroundImage = `url(${data.avatar_url})`
-    userName.textContent = username;
-    login.textContent = `@${data.login}`;
-    text.textContent = data.bio;
-    repos.textContent = data.public_repos;
-    followers.textContent = data.followers;
-    following.textContent = data.following;
-    userLocation.textContent = data.location;
-    twitter.textContent = data.twitter_username;
-    website.textContent = data.blog;
-    company.textContent = data.company;
-    let date = new Date(data.created_at);
-    joined.textContent = `${date.getDate()} ${getMonthString(date.getMonth())} ${date.getFullYear()}`
+    //check if there is an username
+    if (data.message == "Not Found") {
+      errorMessage.classList.remove("hidden");
+    } else {
+      errorMessage.classList.add("hidden");
+      avatar.style.backgroundImage = `url(${data.avatar_url})`
+      userName.textContent = username;
+      login.textContent = `@${data.login}`;
+      text.textContent = data.bio;
+      repos.textContent = data.public_repos;
+      followers.textContent = data.followers;
+      following.textContent = data.following;
+      //check if there is an location
+      if (data.location == null) {
+        userLocation.textContent = "Not Available";
+        userLocation.classList.add("not--available");
+      } else {
+        userLocation.textContent = data.location;
+        userLocation.classList.remove("not--available");
+      }
+      //check if there is a twitter
+      if (data.twitter_username == null) {
+        twitter.textContent = "Not Available";
+        twitter.classList.add("not--available");
+      } else {
+        twitter.textContent = data.twitter_username;
+        twitter.classList.remove("not--available");
+      }
+      //check if there is a blog
+      if (data.blog == null) {
+        website.textContent = "Not Avaílable";
+        website.classList.add("not--available");
+      } else {
+        website.textContent = data.blog;
+        website.classList.remove("not--available");
+      }
+      //check if there is a company
+      if (data.company == null) {
+        company.textContent = "Not Available";
+        company.classList.add("not--available");
+      } else {
+        company.textContent = data.company;
+        company.classList.remove("not--available");
+      }
+      //joined date
+      let date = new Date(data.created_at);
+      joined.textContent = `${date.getDate()} ${getMonthString(date.getMonth())} ${date.getFullYear()}`
+      console.log(data.message);
+    }
   }
   xhr.send();
 }
