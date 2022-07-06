@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <title>Frontend Mentor | GitHub user search app</title>
+</head>
+<body class="all">
+
+  <header class="header">
+    <h1 class="h--1">devfinder</h1>
+    <button id="themeSwitch" class="theme--btn dark--btn" type="button" name="button">dark</button>
+  </header>
+
+    <form class="nav" id="myForm" action="index.html" method="post">
+      <div class="nav__input">
+        <label for="inputUsername" aria-labe="search github username"></label>
+        <input id="inputUsername" type="text" name="" value="" placeholder="search GitHub username&#8230">
+      </div>
+      <p id="error" class="nav__error hidden">No results</p>
+      <button id="search" class="nav__btn" type="button" name="button">Search</button>
+    </form>
+
+  <main class="main">
+    <div id="avatar" class="main__pic"></div>
+    <div class="main__info">
+      <div class="main__info__col1">
+        <h1 id="userName" class="h--1">The Octocat</h1>
+        <p id="login" class="body--text">@octocat</p>
+      </div>
+      <p class="main__info__col2 body--text">Joined <span id="joined">25 Jan 2011</span></p>
+    </div>
+    <div class="main__container">
+      <p id="text" class="main__container__text body--text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros.</p>
+      <div class="main__container__box">
+        <div class="main__container__box__col1">
+          <p class="h--4">Repos</p>
+          <p id="repos" class="h--2">8</p>
+        </div>
+        <div class="main__container__box__col2">
+          <p class="h--4">Followers</p>
+          <p id="followers" class="h--2">8351</p>
+        </div>
+        <div class="main__container__box__col3">
+          <p class="h--4">Following</p>
+          <p id="following" class="h--2">8</p>
+        </div>
+      </div>
+      <div class="main__container__grid">
+        <div class="main__container__grid__col">
+          <img class="loc--ation" src="assets/icon-location.svg" alt="location icon">
+          <p id="location" class="body--text">San Francisco</p>
+        </div>
+        <div class="main__container__grid__col">
+          <img src="assets/icon-twitter.svg" alt="twitter icon">
+          <p id="twitter" class="body--text">Not Available</p>
+        </div>
+        <div class="main__container__grid__col">
+          <img src="assets/icon-website.svg" alt="website icon">
+          <a id="website" href="https://github.blog" class="body--text">https://github.blog</a>
+        </div>
+        <div class="main__container__grid__col">
+          <img src="assets/icon-company.svg" alt="company icon">
+          <p id="company" class="body--text">@github</p>
+        </div>
+      </div>
+    </div>
+  </main>
+<script src="app.js"></script>
+</body>
+</html>
