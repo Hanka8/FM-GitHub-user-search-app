@@ -17,14 +17,17 @@
     <button id="themeSwitch" class="theme--btn dark--btn" type="button" name="button">dark</button>
   </header>
 
+  <nav>
     <form class="nav" id="myForm" action="index.html" method="post">
       <div class="nav__input">
-        <label for="inputUsername" aria-labe="search github username"></label>
-        <input id="inputUsername" type="text" name="" value="" placeholder="search GitHub username&#8230">
+        <label for="inputUsername" aria-label="search github username"></label>
+        <input id="inputUsername" type="text" name="user name" value="" placeholder="search GitHub username&#8230">
       </div>
       <p id="error" class="nav__error hidden">No results</p>
       <button id="search" class="nav__btn" type="button" name="button">Search</button>
     </form>
+  </nav>
+
 
   <main class="main">
     <div id="avatar" class="main__pic"></div>
@@ -71,6 +74,7 @@
       </div>
     </div>
   </main>
+
 <script src="app.js"></script>
 </body>
 </html>

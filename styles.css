@@ -54,7 +54,23 @@
 
 a {
   text-decoration: none;
+  cursor: pointer;
 }
+
+a:hover {
+  text-decoration: underline;
+}
+
+
+.not--available {
+  filter: invert(41%) sepia(33%) saturate(223%) hue-rotate(181deg) brightness(132%) contrast(89%);
+}
+
+.not--available a:hover {
+  cursor: default;
+  text-decoration: none;
+}
+
 
 /* TOP NAV */
 
@@ -203,6 +219,9 @@ input[type="text"]:focus {
   background-color: black;
   float: left;
   margin-right: 37px;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .main__info {
@@ -237,6 +256,10 @@ input[type="text"]:focus {
   grid-row-gap: 22%;
   grid-column-gap: 16%;
   margin-top: 37px;
+}
+
+.main__container__grid p, .main__container__grid a {
+    color: #4B6A9B;
 }
 
 .main__container__grid__col {

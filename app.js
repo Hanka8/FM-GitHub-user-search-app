@@ -36,6 +36,7 @@ themeSwitch.onclick = () => {
 const search = document.getElementById("search");
 const myForm = document.getElementById("myForm");
 const errorMessage = document.getElementById("error");
+const inputUser = document.getElementById("inputUserName");
 
 // elements to be displayed
 const avatar = document.getElementById("avatar");
@@ -51,7 +52,7 @@ const website = document.getElementById("website");
 const company = document.getElementById("company");
 const joined = document.getElementById("joined");
 
-//to get data from form
+//to get data from form by clicking button
 search.onclick = () => {
   const input = document.getElementById("inputUsername");
   if (input.value == "") {
@@ -63,6 +64,13 @@ search.onclick = () => {
     requestUser(input.value);
   }
 }
+
+//to get data from form by pressing Enter
+window.addEventListener("keypress", (keyPressed) => {
+  if (keyPressed.key == "Enter") {
+    search.click();
+  }
+});
 
 //to get response from API
 let requestUser = (username) => {
@@ -86,34 +94,34 @@ let requestUser = (username) => {
       //check if there is an location
       if (data.location == null) {
         userLocation.textContent = "Not Available";
-        userLocation.classList.add("not--available");
+        userLocation.parentElement.classList.add("not--available");
       } else {
         userLocation.textContent = data.location;
-        userLocation.classList.remove("not--available");
+        userLocation.parentElement.classList.remove("not--available");
       }
       //check if there is a twitter
       if (data.twitter_username == null) {
         twitter.textContent = "Not Available";
-        twitter.classList.add("not--available");
+        twitter.parentElement.classList.add("not--available");
       } else {
         twitter.textContent = data.twitter_username;
-        twitter.classList.remove("not--available");
+        twitter.parentElement.classList.remove("not--available");
       }
       //check if there is a blog
-      if (data.blog == null) {
+      if (!data.blog) {
         website.textContent = "Not Avaílable";
-        website.classList.add("not--available");
+        website.parentElement.classList.add("not--available");
       } else {
         website.textContent = data.blog;
-        website.classList.remove("not--available");
+        website.parentElement.classList.remove("not--available");
       }
       //check if there is a company
       if (data.company == null) {
         company.textContent = "Not Available";
-        company.classList.add("not--available");
+        company.parentElement.classList.add("not--available");
       } else {
         company.textContent = data.company;
-        company.classList.remove("not--available");
+        company.parentElement.classList.remove("not--available");
       }
       //joined date
       let date = new Date(data.created_at);
