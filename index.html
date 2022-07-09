@@ -18,13 +18,15 @@
   </header>
 
   <nav>
-    <form class="nav" id="myForm" action="index.html" method="post">
+    <!-- no action or method there since I am using AJAX -->
+    <form class="nav" id="myForm">
       <div class="nav__input">
         <label for="inputUsername" aria-label="search github username"></label>
         <input id="inputUsername" type="text" name="user name" value="" placeholder="search GitHub username&#8230">
       </div>
       <p id="error" class="nav__error hidden">No results</p>
-      <button id="search" class="nav__btn" type="button" name="button">Search</button>
+      <!-- type of the button needs to be submit -->
+      <button id="search" class="nav__btn" type="submit" name="button">Search</button>
     </form>
   </nav>
 

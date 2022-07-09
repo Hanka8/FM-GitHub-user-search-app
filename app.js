@@ -53,7 +53,9 @@ const company = document.getElementById("company");
 const joined = document.getElementById("joined");
 
 //to get data from form by clicking button
-search.onclick = () => {
+function handleFormSubmit(event) {
+  //to avoid reloading on submit
+  event.preventDefault();
   const input = document.getElementById("inputUsername");
   if (input.value == "") {
     errorMessage.classList.remove("hidden");
@@ -64,6 +66,8 @@ search.onclick = () => {
     requestUser(input.value);
   }
 }
+
+myForm.addEventListener("submit", handleFormSubmit);
 
 //to get data from form by pressing Enter
 window.addEventListener("keypress", (keyPressed) => {
